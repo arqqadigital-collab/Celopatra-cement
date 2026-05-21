@@ -81,6 +81,18 @@
         .animate-marquee:hover {
             animation-play-state: paused;
         }
+
+        /* Product Hover Shake Animation */
+        @keyframes productShake {
+            0%, 100% { translate: 0px 0px; rotate: 0deg; }
+            25% { translate: -3px -6px; rotate: -2deg; }
+            50% { translate: 3px -12px; rotate: 2deg; }
+            75% { translate: -2px -6px; rotate: -1deg; }
+        }
+        .product-img:hover {
+            animation: productShake 1.5s ease-in-out infinite;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800 bg-white">
@@ -121,7 +133,8 @@
                     </div>
 
                     <a href="#sustainability" class="text-white hover:text-brand-500 font-medium transition-colors nav-link whitespace-nowrap">Sustainability</a>
-                    <a href="#" class="text-white hover:text-brand-500 font-medium transition-colors nav-link whitespace-nowrap">White Cement</a>
+                    <a href="#certifications" class="text-white hover:text-brand-500 font-medium transition-colors nav-link whitespace-nowrap">Certificates</a>
+                    <a href="#" class="text-white hover:text-brand-500 font-medium transition-colors nav-link whitespace-nowrap">Careers</a>
                     <a href="#contact" class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-2.5 rounded-md font-semibold transition-colors shadow-lg whitespace-nowrap">Contact Us</a>
                 </div>
 
@@ -157,7 +170,8 @@
                 </div>
 
                 <a href="#sustainability" class="block px-3 py-3 text-gray-800 hover:bg-gray-50 hover:text-brand-600 font-medium rounded-md">Sustainability</a>
-                <a href="#" class="block px-3 py-3 text-gray-800 hover:bg-gray-50 hover:text-brand-600 font-medium rounded-md">White Cement</a>
+                <a href="#certifications" class="block px-3 py-3 text-gray-800 hover:bg-gray-50 hover:text-brand-600 font-medium rounded-md">Certificates</a>
+                <a href="#" class="block px-3 py-3 text-gray-800 hover:bg-gray-50 hover:text-brand-600 font-medium rounded-md">Careers</a>
                 <a href="#contact" class="block px-3 py-3 mt-4 text-center bg-brand-600 text-white font-semibold rounded-md shadow-md">Contact Us</a>
             </div>
         </div>
@@ -219,77 +233,69 @@
             </div>
         </section>
 
-        <!-- Why Us / The Advantage -->
-        <section id="why-us" class="relative py-24 bg-cover bg-center bg-fixed" style="background-image: url('https://res.cloudinary.com/ddhd5jmj3/image/upload/v1778685499/ChatGPT_Image_May_13_2026_06_15_12_PM_jkvwoc.png');">
-            <!-- Dark Overlay -->
-            <div class="absolute inset-0 bg-black/40 z-0"></div>
+        <!-- Why Us / The Advantage (Reference Style Slider) -->
+        <section id="why-us" class="relative h-screen min-h-[700px] flex items-center bg-gray-900 w-full overflow-hidden">
+            <!-- Dynamic Backgrounds -->
+            <div id="adv-bg-container" class="absolute inset-0 z-0">
+                <!-- Background images injected via JS -->
+            </div>
             
-            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-white font-bold tracking-wider uppercase text-sm mb-2 block">The Advantage</span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Why Cleopatra Cement</h2>
+            <!-- Overlays for Readability -->
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10"></div>
+
+            <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between pt-16 lg:pt-0 pb-20 lg:pb-0">
+                
+                <!-- Left Text Content -->
+                <div class="w-full lg:w-5/12 text-white pr-0 lg:pr-12 mb-12 lg:mb-0" id="adv-text-container">
+                    <div class="flex items-center gap-3 mb-4 overflow-hidden">
+                        <div class="w-8 h-[2px] bg-white"></div>
+                        <span class="uppercase tracking-widest text-sm font-semibold text-gray-200" id="adv-subtitle">The Advantage</span>
+                    </div>
+                    <div class="overflow-hidden mb-6">
+                        <h2 class="text-4xl lg:text-5xl font-black uppercase leading-tight" id="adv-title">Reliable<br/>Logistics</h2>
+                    </div>
+                    <div class="overflow-hidden mb-8">
+                        <p class="text-gray-300 text-lg leading-relaxed max-w-md" id="adv-desc">Flexible delivery solutions supported by robust logistics infrastructure and global shipping capabilities.</p>
+                    </div>
                 </div>
 
-                <div class="flex flex-wrap justify-center gap-6 lg:gap-8 overflow-hidden py-4">
-                    <!-- Feature 1 -->
-                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1.5rem)]" style="transition-delay: 100ms;">
-                        <div class="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-white/20 transition-all duration-500 hover:border-brand-400 hover:shadow-2xl hover:-translate-y-3 hover:scale-[1.03] group flex flex-col items-center text-center h-full cursor-default">
-                            <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mb-5 text-brand-600 shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-100 group-hover:shadow-md">
-                                <svg class="w-6 h-6 transition-transform duration-500 group-hover:rotate-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-brand-700">Superior Whiteness</h3>
-                            <p class="text-gray-600">High-brightness cement engineered for architectural excellence and premium finishes.</p>
-                        </div>
+                <!-- Right Cards Carousel -->
+                <div class="w-full lg:w-7/12 relative">
+                    <div class="flex gap-4 md:gap-6 overflow-x-auto hide-scrollbar snap-x snap-mandatory py-4 pl-4 lg:pl-0 pr-4" id="adv-cards-container">
+                        <!-- Cards injected via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Controls Bar -->
+            <div class="absolute bottom-6 md:bottom-10 left-0 w-full z-30">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6 md:gap-12">
+                    
+                    <!-- Arrows -->
+                    <div class="flex gap-3 md:gap-4 shrink-0">
+                        <button id="adv-btn-prev" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/20 hover:border-white transition-all backdrop-blur-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button id="adv-btn-next" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/20 hover:border-white transition-all backdrop-blur-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Progress Line -->
+                    <div class="flex-1 h-[2px] bg-white/20 relative rounded-full overflow-hidden hidden sm:block max-w-lg">
+                        <div id="adv-progress" class="absolute top-0 left-0 h-full bg-brand-500 w-1/5 transition-all duration-500 ease-out"></div>
                     </div>
 
-                    <!-- Feature 2 -->
-                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1.5rem)]" style="transition-delay: 200ms;">
-                        <div class="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-white/20 transition-all duration-500 hover:border-brand-400 hover:shadow-2xl hover:-translate-y-3 hover:scale-[1.03] group flex flex-col items-center text-center h-full cursor-default">
-                            <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mb-5 text-brand-600 shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-100 group-hover:shadow-md">
-                                <svg class="w-6 h-6 transition-transform duration-500 group-hover:rotate-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-brand-700">Advanced Technology</h3>
-                            <p class="text-gray-600">State-of-the-art automated production systems ensuring precision and consistent quality.</p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1.5rem)]" style="transition-delay: 300ms;">
-                        <div class="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-white/20 transition-all duration-500 hover:border-brand-400 hover:shadow-2xl hover:-translate-y-3 hover:scale-[1.03] group flex flex-col items-center text-center h-full cursor-default">
-                            <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mb-5 text-brand-600 shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-100 group-hover:shadow-md">
-                                <svg class="w-6 h-6 transition-transform duration-500 group-hover:rotate-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-brand-700">Global Reach</h3>
-                            <p class="text-gray-600">Trusted across six continents with exports to more than 20 countries worldwide.</p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1.5rem)]" style="transition-delay: 400ms;">
-                        <div class="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-white/20 transition-all duration-500 hover:border-brand-400 hover:shadow-2xl hover:-translate-y-3 hover:scale-[1.03] group flex flex-col items-center text-center h-full cursor-default">
-                            <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mb-5 text-brand-600 shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-100 group-hover:shadow-md">
-                                <svg class="w-6 h-6 transition-transform duration-500 group-hover:rotate-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-brand-700">Sustainable Manufacturing</h3>
-                            <p class="text-gray-600">Committed to energy efficiency, alternative fuels, renewable energy, and eco-friendly production.</p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 5 -->
-                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1.5rem)]" style="transition-delay: 500ms;">
-                        <div class="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-white/20 transition-all duration-500 hover:border-brand-400 hover:shadow-2xl hover:-translate-y-3 hover:scale-[1.03] group flex flex-col items-center text-center h-full cursor-default">
-                            <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mb-5 text-brand-600 shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-100 group-hover:shadow-md">
-                                <svg class="w-6 h-6 transition-transform duration-500 group-hover:rotate-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-brand-700">Reliable Logistics</h3>
-                            <p class="text-gray-600">Flexible delivery solutions supported by robust logistics infrastructure and global shipping capabilities.</p>
-                        </div>
+                    <!-- Slide Counter -->
+                    <div class="text-white text-3xl md:text-5xl font-black tabular-nums tracking-tighter shrink-0 flex items-end drop-shadow-md">
+                        <span id="adv-current-num">01</span><span class="text-white/40 text-xl md:text-2xl mb-1 ml-1">/04</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Our Products (Scroll Driven GSAP) -->
+        <!-- Our Our Products (Scroll Driven GSAP) -->
         <section id="products" class="relative w-full h-screen bg-[#f5f5f5] overflow-hidden font-sans text-zinc-900 select-none">
             <!-- Background Decorative Text -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18vw] font-black text-black/[0.04] uppercase pointer-events-none whitespace-nowrap tracking-tighter z-0">
@@ -549,50 +555,90 @@
         </section>
 
         <!-- Sustainability -->
-        <section id="sustainability" class="relative py-24 bg-cover bg-center bg-fixed" style="background-image: url('https://res.cloudinary.com/ddhd5jmj3/image/upload/v1778683200/pexels-quang-nguyen-vinh-222549-14024422_i5meut.jpg');">
-            <!-- Dark Overlay -->
-            <div class="absolute inset-0 bg-black/40 z-0"></div>
+        <section id="sustainability" class="relative py-28 bg-cover bg-center bg-fixed" style="background-image: url('https://res.cloudinary.com/ddhd5jmj3/image/upload/v1778683200/pexels-quang-nguyen-vinh-222549-14024422_i5meut.jpg');">
+            <!-- Dark Overlay for backdrop readability -->
+            <div class="absolute inset-0 bg-black/65 z-0"></div>
             
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="order-2 lg:order-1">
-                        <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-10 shadow-2xl">
-                            <h3 class="text-2xl font-bold text-white mb-6">Our Sustainability Initiatives</h3>
-                            <ul class="space-y-4">
-                                <li class="flex items-center">
-                                    <svg class="w-6 h-6 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-gray-200 font-medium">Renewable Energy Solutions</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-6 h-6 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-gray-200 font-medium">Alternative Fuels</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-6 h-6 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-gray-200 font-medium">ESG Reporting</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-6 h-6 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-gray-200 font-medium">Energy Efficiency Programs</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-6 h-6 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-gray-200 font-medium">Green Hydrogen Exploration</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-6 h-6 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-gray-200 font-medium">Digital Transformation & AI Integration</span>
-                                </li>
-                            </ul>
+                <!-- Section Header (Sustainability Building Responsibly as single huge text on white) -->
+                <div class="text-center max-w-4xl mx-auto mb-20">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 uppercase tracking-tight leading-tight">
+                        Sustainability Building Responsibly
+                    </h2>
+                    <p class="text-lg text-white/90 leading-relaxed font-light max-w-3xl mx-auto">
+                        Sustainability is a foundational principle at Cleopatra Cement. We continuously invest in green technologies and environmentally responsible practices to reduce emissions, conserve energy, and optimize resources.
+                    </p>
+                </div>
+
+                <!-- Initiatives Premium Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Initiative 1 -->
+                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out" style="transition-delay: 100ms;">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/10 hover:border-brand-500/50 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 p-8 rounded-2xl flex flex-col items-start h-full group transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6 text-brand-400 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shadow-inner">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Renewable Energy Solutions</h3>
+                            <p class="text-gray-300 text-sm font-light leading-relaxed">Transitioning to zero-carbon energy with solar networks and wind integration to fuel smart plant setups.</p>
                         </div>
                     </div>
-                    <div class="order-1 lg:order-2">
-                        <span class="text-white font-bold tracking-wider uppercase text-sm mb-2 block">Sustainability</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">Building Responsibly</h2>
-                        <p class="text-lg text-gray-200 mb-6 leading-relaxed">
-                            Sustainability is a foundational principle at Cleopatra Cement. We continuously invest in green technologies and environmentally responsible practices to reduce emissions, conserve energy, and optimize resources.
-                        </p>
+
+                    <!-- Initiative 2 -->
+                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out" style="transition-delay: 200ms;">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/10 hover:border-brand-500/50 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 p-8 rounded-2xl flex flex-col items-start h-full group transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6 text-brand-400 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shadow-inner">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.966 7.966 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Alternative Fuels</h3>
+                            <p class="text-gray-300 text-sm font-light leading-relaxed">Replacing fossil materials with co-processed secure components for optimal thermal clinker steps.</p>
+                        </div>
                     </div>
+
+                    <!-- Initiative 3 -->
+                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out" style="transition-delay: 300ms;">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/10 hover:border-brand-500/50 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 p-8 rounded-2xl flex flex-col items-start h-full group transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6 text-brand-400 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shadow-inner">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">ESG Reporting</h3>
+                            <p class="text-gray-300 text-sm font-light leading-relaxed">Pioneering standard disclosures in governance, emissions limits, and green performance targets.</p>
+                        </div>
+                    </div>
+
+                    <!-- Initiative 4 -->
+                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out" style="transition-delay: 100ms;">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/10 hover:border-brand-500/50 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 p-8 rounded-2xl flex flex-col items-start h-full group transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6 text-brand-400 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shadow-inner">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Energy Efficiency Programs</h3>
+                            <p class="text-gray-300 text-sm font-light leading-relaxed">Incorporating innovative Waste Heat Recovery (WHR) loops to preserve vital grid energy.</p>
+                        </div>
+                    </div>
+
+                    <!-- Initiative 5 -->
+                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out" style="transition-delay: 200ms;">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/10 hover:border-brand-500/50 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 p-8 rounded-2xl flex flex-col items-start h-full group transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6 text-brand-400 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shadow-inner">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Green Hydrogen Exploration</h3>
+                            <p class="text-gray-300 text-sm font-light leading-relaxed">Studying clean hydrogen fuel applications to achieve zero emissions thermal systems.</p>
+                        </div>
+                    </div>
+
+                    <!-- Initiative 6 -->
+                    <div class="reveal-card opacity-0 translate-y-10 transition-all duration-700 ease-out" style="transition-delay: 300ms;">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/10 hover:border-brand-500/50 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 p-8 rounded-2xl flex flex-col items-start h-full group transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6 text-brand-400 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shadow-inner">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364.364l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 113.536 0V21h-3.536v-3.457z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Digital & AI Integration</h3>
+                            <p class="text-gray-300 text-sm font-light leading-relaxed">Using machine learning and real-time sensor analytics to maximize kiln heat output.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -673,10 +719,7 @@
                     
                     <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
                         <p>&copy; 2026 Cleopatra Cement. All rights reserved.</p>
-                        <div class="flex space-x-4 mt-4 md:mt-0">
-                            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                        </div>
+                        <div class="flex space-x-4 mt-4 md:mt-0"></div>
                     </div>
                 </div>
             </footer>
@@ -802,7 +845,182 @@
                 .to({}, {duration: 0.2}); // Hold slide 3 slightly before unpinning
 
 
-            // Intersection Observer for Scroll Animations (Advantage Cards)
+            // Advantage Slider Logic (Reference Style Layout)
+            const ADV_DATA = [
+                {
+                    title: "Reliable<br/>Logistics",
+                    subtitle: "Flexible Delivery",
+                    desc: "Flexible delivery solutions supported by robust logistics infrastructure and global shipping capabilities.",
+                    img: "https://ik.imagekit.io/qmyib0eou/ChatGPT%20Image%20May%2019,%202026,%2005_03_17%20PM.png"
+                },
+                {
+                    title: "Advanced<br/>Technology",
+                    subtitle: "Automated Production",
+                    desc: "State-of-the-art automated production systems ensuring precision and consistent quality.",
+                    img: "https://ik.imagekit.io/qmyib0eou/ChatGPT%20Image%20May%2019,%202026,%2005_02_30%20PM.png?updatedAt=1779199421987"
+                },
+                {
+                    title: "Global<br/>Reach",
+                    subtitle: "Worldwide Export",
+                    desc: "Trusted across six continents with exports to more than 20 countries worldwide.",
+                    img: "https://ik.imagekit.io/qmyib0eou/ChatGPT%20Image%20May%2019,%202026,%2005_00_29%20PM.png"
+                },
+                {
+                    title: "Sustainable<br/>Manufacturing",
+                    subtitle: "Eco-Friendly",
+                    desc: "Committed to energy efficiency, alternative fuels, renewable energy, and eco-friendly production.",
+                    img: "https://ik.imagekit.io/qmyib0eou/ChatGPT%20Image%20May%2019,%202026,%2005_05_23%20PM.png"
+                }
+            ];
+
+            const advBgContainer = document.getElementById('adv-bg-container');
+            const advCardsContainer = document.getElementById('adv-cards-container');
+            const advTitle = document.getElementById('adv-title');
+            const advSubtitle = document.getElementById('adv-subtitle');
+            const advDesc = document.getElementById('adv-desc');
+            const advCurrentNum = document.getElementById('adv-current-num');
+            const advProgress = document.getElementById('adv-progress');
+            
+            let currentAdvIdx = 0;
+            let isAdvAnimating = false;
+            let advTimer;
+
+            // Initialize the Slider
+            function initAdvSlider() {
+                if(!advBgContainer) return;
+                
+                ADV_DATA.forEach((slide, idx) => {
+                    // Create Background Image
+                    const bg = document.createElement('div');
+                    bg.className = `absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${idx === 0 ? 'opacity-100' : 'opacity-0'}`;
+                    bg.style.backgroundImage = `url('${slide.img}')`;
+                    bg.id = `adv-bg-${idx}`;
+                    advBgContainer.appendChild(bg);
+
+                    // Create Card
+                    const card = document.createElement('div');
+                    card.className = `adv-card group relative w-[160px] md:w-[220px] h-[240px] md:h-[320px] rounded-2xl overflow-hidden shrink-0 cursor-pointer snap-center border-2 transition-all duration-500 ${idx === 0 ? 'border-white scale-100 opacity-100' : 'border-transparent scale-95 opacity-60 hover:opacity-100'}`;
+                    card.onclick = () => goToAdv(idx);
+                    card.id = `adv-card-${idx}`;
+                    
+                    // Card Image
+                    const img = document.createElement('img');
+                    img.src = slide.img;
+                    img.className = "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110";
+                    
+                    // Card Overlay Gradient
+                    const overlay = document.createElement('div');
+                    overlay.className = "absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent";
+
+                    // Card Title Wrap
+                    const titleWrap = document.createElement('div');
+                    titleWrap.className = "absolute bottom-0 left-0 w-full p-4 md:p-5";
+                    titleWrap.innerHTML = `<h4 class="text-white font-bold text-sm md:text-base leading-tight uppercase transform translate-y-0 transition-transform duration-300 group-hover:-translate-y-1">${slide.title.replace('<br/>', ' ')}</h4>
+                                           <div class="w-6 h-0.5 bg-brand-500 mt-2 opacity-0 group-hover:opacity-100 transition-opacity"></div>`;
+                    
+                    // Play Button Indicator (for active card)
+                    const activeIndicator = document.createElement('div');
+                    activeIndicator.className = `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-500 ${idx === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-50 group-hover:opacity-100'}`;
+                    activeIndicator.innerHTML = `<svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+                    activeIndicator.id = `adv-indicator-${idx}`;
+
+                    card.appendChild(img);
+                    card.appendChild(overlay);
+                    card.appendChild(activeIndicator);
+                    card.appendChild(titleWrap);
+                    
+                    advCardsContainer.appendChild(card);
+                });
+
+                // Set initial text
+                advTitle.innerHTML = ADV_DATA[0].title;
+                advSubtitle.innerText = ADV_DATA[0].subtitle;
+                advDesc.innerText = ADV_DATA[0].desc;
+                
+                startAdvTimer();
+            }
+
+            function goToAdv(idx) {
+                if (isAdvAnimating || idx === currentAdvIdx) return;
+                isAdvAnimating = true;
+
+                const prevIdx = currentAdvIdx;
+                currentAdvIdx = idx;
+
+                startAdvTimer(); // Reset timer
+
+                // 1. Update Backgrounds (Crossfade)
+                document.getElementById(`adv-bg-${prevIdx}`).classList.replace('opacity-100', 'opacity-0');
+                document.getElementById(`adv-bg-${currentAdvIdx}`).classList.replace('opacity-0', 'opacity-100');
+
+                // 2. Update Cards Style
+                const prevCard = document.getElementById(`adv-card-${prevIdx}`);
+                const currentCard = document.getElementById(`adv-card-${currentAdvIdx}`);
+                
+                prevCard.className = "adv-card group relative w-[160px] md:w-[220px] h-[240px] md:h-[320px] rounded-2xl overflow-hidden shrink-0 cursor-pointer snap-center border-2 border-transparent scale-95 opacity-60 hover:opacity-100 transition-all duration-500";
+                document.getElementById(`adv-indicator-${prevIdx}`).className = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-500 opacity-0 scale-50 group-hover:opacity-100";
+
+                currentCard.className = "adv-card group relative w-[160px] md:w-[220px] h-[240px] md:h-[320px] rounded-2xl overflow-hidden shrink-0 cursor-pointer snap-center border-2 border-white scale-100 opacity-100 transition-all duration-500";
+                document.getElementById(`adv-indicator-${currentAdvIdx}`).className = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-500 opacity-100 scale-100";
+
+                // Scroll to active card in the horizontal container without forcing window scroll
+                const scrollLeftPos = currentCard.offsetLeft - (advCardsContainer.offsetWidth / 2) + (currentCard.offsetWidth / 2);
+                advCardsContainer.scrollTo({ left: scrollLeftPos, behavior: 'smooth' });
+
+                // 3. Update Progress Bar & Numbers
+                advProgress.style.width = `${((currentAdvIdx + 1) / ADV_DATA.length) * 100}%`;
+                advCurrentNum.innerText = `0${currentAdvIdx + 1}`;
+
+                // 4. Update Text with GSAP Animation
+                const tl = gsap.timeline({
+                    onComplete: () => { isAdvAnimating = false; }
+                });
+
+                tl.to([advTitle, advDesc, advSubtitle], {
+                    y: -20,
+                    opacity: 0,
+                    duration: 0.3,
+                    stagger: 0.05,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        advTitle.innerHTML = ADV_DATA[currentAdvIdx].title;
+                        advSubtitle.innerText = ADV_DATA[currentAdvIdx].subtitle;
+                        advDesc.innerText = ADV_DATA[currentAdvIdx].desc;
+                    }
+                })
+                .to([advSubtitle, advTitle, advDesc], {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.4,
+                    stagger: 0.1,
+                    ease: "power3.out"
+                });
+            }
+
+            function startAdvTimer() {
+                if (advTimer) clearInterval(advTimer);
+                advTimer = setInterval(() => {
+                    goToAdv((currentAdvIdx + 1) % ADV_DATA.length);
+                }, 6000); // 6 seconds per slide
+            }
+
+            // Arrow Listeners
+            const advBtnPrev = document.getElementById('adv-btn-prev');
+            const advBtnNext = document.getElementById('adv-btn-next');
+            if(advBtnPrev && advBtnNext) {
+                advBtnPrev.addEventListener('click', () => {
+                    goToAdv((currentAdvIdx - 1 + ADV_DATA.length) % ADV_DATA.length);
+                });
+                advBtnNext.addEventListener('click', () => {
+                    goToAdv((currentAdvIdx + 1) % ADV_DATA.length);
+                });
+            }
+
+            // Initialize Advantage Slider
+            initAdvSlider();
+
+
+            // Intersection Observer for Scroll Animations (Staggered Load for General Sections)
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: "0px 0px -50px 0px"
