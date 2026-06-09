@@ -1,24 +1,19 @@
-# Elegant Blue Build - React/Vite
+# Elegant Blue Build - React Vercel
 
-This project has been converted to a standard React + Vite app ready for Vercel.
+This project is converted to a standard Vite + React app and tested for Vercel.
 
-## Local setup
+## Local
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
-
-```bash
-npm run build
-```
-
 ## Vercel settings
 
 - Framework Preset: Vite
-- Build Command: `npm run build`
-- Output Directory: `dist`
-- Install Command: `npm install`
+- Build Command: npm run build
+- Output Directory: dist
+- Install Command: npm install
 
+Node: works with Node 18+.
