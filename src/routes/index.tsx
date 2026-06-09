@@ -1,29 +1,30 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import logo from "@/assets/cleopatra-logo-white.png.asset.json";
-import heroCementImg from "@/assets/hero-cement.jpg";
+const logo = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/24a1d11f-e93f-4f14-8412-2f63c0b9b6c3/cleopatra-logo-white.png" };
+const heroVideo = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/b80e0cbf-ba75-4542-b6b9-efaa3bcec73c/video_header.mp4" };
 import plantImg from "@/assets/plant.jpg";
 
 import architectureImg from "@/assets/architecture.jpg";
-import plantExteriorAsset from "@/assets/plant-exterior.png.asset.json";
-import patternAsset from "@/assets/pattern.png.asset.json";
-import logisticsImg from "@/assets/logistics-ship.png.asset.json";
-import logisticsBackgroundImg from "@/assets/logistics.jpg";
-import cem1n from "@/assets/products/CEM_I_52.5_N.png.asset.json";
-import cem1r from "@/assets/products/CEM_I_52.5_R.png.asset.json";
-import cem2a from "@/assets/products/CEM_II_A-L_52.5_N.png.asset.json";
-import cem2b42 from "@/assets/products/CEM_II_B-L_42.5_N.png.asset.json";
-import cem2b32 from "@/assets/products/CEM_II_B-L_32.5_R.png.asset.json";
-import masonry from "@/assets/products/Masonry_C-91.png.asset.json";
+const plantExteriorAsset = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/445eeb8c-f6e1-4ab8-b808-6bf2095372c8/plant-exterior.png" };
+const patternAsset = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/3a2ee01f-33fb-4ee9-a0e5-6abb07c22cdd/pattern.png" };
+const logisticsImg = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/6c33a2cb-688d-48a1-a5af-9b9b7bf44510/logistics-ship.png" };
+const logisticsVideo = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/18552e6c-8ef0-4438-a9a7-627950060508/logistics.mp4" };
+const cem1n = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/cf3e779a-c96d-4739-b2b6-73495ac8f442/CEM_I_52.5_N.png" };
+const cem1r = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/58ce734f-da97-493b-8869-9972e8c6bbf4/CEM_I_52.5_R.png" };
+const cem2a = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/679cab71-af29-4ae8-9e0a-4e6d7d70ce6e/CEM_II_A-L_52.5_N.png" };
+const cem2b42 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/4e56d0b9-2529-47c9-990f-ba12bd3aec6f/CEM_II_B-L_42.5_N.png" };
+const cem2b32 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/57526658-d02e-4a5c-8530-ccb77a313691/CEM_II_B-L_32.5_R.png" };
+const masonry = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/586ba30a-19b6-40a8-afc2-8d47bea4d3f7/Masonry_C-91.png" };
 import appConstruction from "@/assets/apps/construction.jpg";
 import appFlooring from "@/assets/apps/flooring.jpg";
 import appDecorative from "@/assets/apps/decorative.jpg";
 import appSpecialty from "@/assets/apps/specialty.jpg";
-import cert01 from "@/assets/certs/c01.png.asset.json";
-import cert02 from "@/assets/certs/c02.png.asset.json";
-import cert03 from "@/assets/certs/c03.png.asset.json";
-import cert04 from "@/assets/certs/c04.png.asset.json";
-import cert05 from "@/assets/certs/c05.png.asset.json";
-import sustainabilityImg from "@/assets/sustainability.jpg.asset.json";
+const cert01 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/8209fa70-0a2c-4fc7-b68b-42be3e853a05/c01.png" };
+const cert02 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/41659bdb-dbc5-43ec-9c41-7c99588aeb1d/c02.png" };
+const cert03 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/521520c9-6364-4e37-8855-7a369ad684eb/c03.png" };
+const cert04 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/9625fb46-2599-45f9-aaac-389115cf49a0/c04.png" };
+const cert05 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/74c58f7f-fb78-40a3-af6f-4a409316bf0f/c05.png" };
+const sustainabilityImg = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/d0de98d4-3471-4c9e-b75c-de1f24a7c931/sustainability.jpg" };
 import {
   ArrowRight,
   Globe,
@@ -47,6 +48,10 @@ import {
   Sprout,
   Wind,
 } from "lucide-react";
+
+export const Route = createFileRoute("/")({
+  component: Home,
+});
 
 function useCountUp(target: number, duration = 2000) {
   const [value, setValue] = useState(0);
@@ -509,7 +514,7 @@ function SectionTag({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Home() {
+function Home() {
   return (
     <div className="min-h-screen text-foreground">
       {/* NAV */}
@@ -545,10 +550,14 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative w-full overflow-hidden">
-        {/* Background image */}
-        <img
-          src={heroCementImg}
-          alt="White cement production background"
+        {/* Background video */}
+        <video
+          src={heroVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -769,9 +778,13 @@ export default function Home() {
 
       {/* LOGISTICS */}
       <section id="logistics" className="relative h-screen w-full overflow-hidden mt-24 md:mt-32">
-        <img
-          src={logisticsBackgroundImg}
-          alt="Global logistics background"
+        <video
+          src={logisticsVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover"
         />
