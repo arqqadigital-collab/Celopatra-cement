@@ -1,30 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-const logo = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/24a1d11f-e93f-4f14-8412-2f63c0b9b6c3/cleopatra-logo-white.png" };
-const heroVideo = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/b80e0cbf-ba75-4542-b6b9-efaa3bcec73c/video_header.mp4" };
+const logo = { url: "/assets/cleopatra-logo-blue.png" };
+const heroVideo = { url: "/assets/hero-factory.mp4" };
+const whoWeAreImage = { url: "/assets/who-we-are.png" };
+const counterFactory = { url: "/assets/counter-factory-white.png" };
+const mvvBg = { url: "/assets/mission-vision-bg.png" };
+const manufacturingBg = { url: "/assets/pattern-bg.png" };
+const productsBackgroundSection = { url: "/assets/products-background-section.png" };
 import plantImg from "@/assets/plant.jpg";
 
 import architectureImg from "@/assets/architecture.jpg";
-const plantExteriorAsset = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/445eeb8c-f6e1-4ab8-b808-6bf2095372c8/plant-exterior.png" };
-const patternAsset = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/3a2ee01f-33fb-4ee9-a0e5-6abb07c22cdd/pattern.png" };
-const logisticsImg = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/6c33a2cb-688d-48a1-a5af-9b9b7bf44510/logistics-ship.png" };
-const logisticsVideo = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/18552e6c-8ef0-4438-a9a7-627950060508/logistics.mp4" };
-const cem1n = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/cf3e779a-c96d-4739-b2b6-73495ac8f442/CEM_I_52.5_N.png" };
-const cem1r = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/58ce734f-da97-493b-8869-9972e8c6bbf4/CEM_I_52.5_R.png" };
-const cem2a = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/679cab71-af29-4ae8-9e0a-4e6d7d70ce6e/CEM_II_A-L_52.5_N.png" };
-const cem2b42 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/4e56d0b9-2529-47c9-990f-ba12bd3aec6f/CEM_II_B-L_42.5_N.png" };
-const cem2b32 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/57526658-d02e-4a5c-8530-ccb77a313691/CEM_II_B-L_32.5_R.png" };
-const masonry = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/586ba30a-19b6-40a8-afc2-8d47bea4d3f7/Masonry_C-91.png" };
+const plantExteriorAsset = { url: "/assets/plant-exterior.png" };
+const patternAsset = { url: "/assets/pattern.png" };
+const logisticsImg = { url: "/assets/logistics-ship.png" };
+const logisticsVideo = { url: "/assets/logistics.mp4" };
+const cem1n = { url: "/assets/products/CEM_I_52.5_N.png" };
+const cem1r = { url: "/assets/products/CEM_I_52.5_R.png" };
+const cem2a = { url: "/assets/products/CEM_II_A-L_52.5_N.png" };
+const cem2b42 = { url: "/assets/products/CEM_II_B-L_42.5_N.png" };
+const cem2b32 = { url: "/assets/products/CEM_II_B-L_32.5_R.png" };
+const masonry = { url: "/assets/products/Masonry_C-91.png" };
 import appConstruction from "@/assets/apps/construction.jpg";
 import appFlooring from "@/assets/apps/flooring.jpg";
 import appDecorative from "@/assets/apps/decorative.jpg";
 import appSpecialty from "@/assets/apps/specialty.jpg";
-const cert01 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/8209fa70-0a2c-4fc7-b68b-42be3e853a05/c01.png" };
-const cert02 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/41659bdb-dbc5-43ec-9c41-7c99588aeb1d/c02.png" };
-const cert03 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/521520c9-6364-4e37-8855-7a369ad684eb/c03.png" };
-const cert04 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/9625fb46-2599-45f9-aaac-389115cf49a0/c04.png" };
-const cert05 = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/74c58f7f-fb78-40a3-af6f-4a409316bf0f/c05.png" };
-const sustainabilityImg = { url: "https://preview--elegant-blue-build.lovable.app/__l5e/assets-v1/d0de98d4-3471-4c9e-b75c-de1f24a7c931/sustainability.jpg" };
+const cert01 = { url: "/assets/certs/c01.png" };
+const cert02 = { url: "/assets/certs/c02.png" };
+const cert03 = { url: "/assets/certs/c03.png" };
+const cert04 = { url: "/assets/certs/c04.png" };
+const cert05 = { url: "/assets/certs/c05.png" };
+const sustainabilityImg = { url: "/assets/sustainability.jpg" };
+const ctaBg = { url: "/assets/pattern-bg-2.png" };
 import {
   ArrowRight,
   Globe,
@@ -49,8 +55,7 @@ import {
   Wind,
 } from "lucide-react";
 
-export const Route = createFileRoute("/")({
-  component: Home,
+export const Route = createFileRoute("/")({ component: Home,
 });
 
 function useCountUp(target: number, duration = 2000) {
@@ -130,20 +135,55 @@ function Stat({
 
 function AboutSection() {
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.15 });
+  const imgRef = useRef<HTMLImageElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const section = sectionRef.current;
+      const img = imgRef.current;
+      if (!section || !img) return;
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.bottom < 0 || rect.top > vh) return;
+      // Parallax: shift image based on section position
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const translate = (progress - 0.5) * 280; // stronger parallax
+      img.style.transform = `translate3d(0, ${translate}px, 0) scale(1.35)`;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
-    <section id="about" className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
-      <div ref={ref} className={`grid items-center gap-12 md:grid-cols-2 ${inView ? "is-visible" : ""}`}>
-        <div>
+    <section ref={sectionRef} id="about" className="relative h-screen w-full overflow-hidden">
+      <img
+        ref={imgRef}
+        src={whoWeAreImage.url}
+        alt="Cleopatra Cement plant exterior"
+        className="absolute inset-0 h-full w-full object-cover will-change-transform"
+        style={{ transform: "scale(1.2)" }}
+      />
+      <div
+        ref={ref}
+        className={`relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 ${inView ? "is-visible" : ""}`}
+      >
+        <div className="max-w-xl text-white">
           <div className={`reveal ${inView ? "is-visible" : ""}`} style={{ animationDelay: "0ms" }}>
             <SectionTag>Who We Are</SectionTag>
           </div>
           <h2
             className={`reveal mt-4 text-4xl md:text-5xl font-semibold ${inView ? "is-visible" : ""}`}
-            style={{ animationDelay: "120ms" }}
+            style={{ animationDelay: "120ms", color: "#0b131b" }}
           >
-            A legacy of <span className="brand-gradient-text">white cement</span> excellence.
+            A legacy of white cement excellence.
           </h2>
-          <div className="mt-6 space-y-4 text-muted-foreground">
+          <div className="mt-6 space-y-4">
             {[
               "Cleopatra Cement is a premier producer of white cement in Egypt, recognized for delivering high-performance solutions to customers across international markets.",
               "Established in 2018 following the demerger from Helwan Cement Company, we inherited the El-Minya white cement plant — bringing forward more than three decades of manufacturing expertise and operational excellence.",
@@ -152,42 +192,145 @@ function AboutSection() {
               <p
                 key={i}
                 className={`reveal ${inView ? "is-visible" : ""}`}
-                style={{ animationDelay: `${260 + i * 140}ms` }}
+                style={{ animationDelay: `${260 + i * 140}ms`, color: "#0b131b" }}
               >
                 {t}
               </p>
             ))}
           </div>
         </div>
-        <div className="relative group">
-          <div
-            className={`glass-card overflow-hidden rounded-3xl glow-ring transition-all duration-[1400ms] ease-out ${
-              inView
-                ? "opacity-100 translate-y-0 [clip-path:inset(0_0_0_0)] blur-0"
-                : "opacity-0 translate-y-10 [clip-path:inset(0_100%_0_0)] blur-md"
-            }`}
-          >
-            <img
-              src={plantExteriorAsset.url}
-              alt="Cleopatra Cement plant exterior"
-              width={1456}
-              height={1080}
-              loading="lazy"
-              className={`h-[460px] w-full object-cover transition-transform duration-[2400ms] ease-out ${
-                inView ? "scale-100" : "scale-[1.18]"
-              }`}
-            />
-          </div>
-          <div
-            className={`glass-card absolute -bottom-6 -left-6 hidden md:block rounded-2xl p-5 w-64 transition-all duration-700 ${
-              inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-            style={{ transitionDelay: "900ms" }}
-          >
-            <div className="text-xs uppercase tracking-widest text-muted-foreground">Since</div>
-            <div className="mt-1 text-3xl font-semibold brand-gradient-text">1989</div>
-            <div className="mt-1 text-xs text-muted-foreground">El-Minya plant heritage</div>
-          </div>
+      </div>
+    </section>
+  );
+}
+
+function ParallaxStrip() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const section = sectionRef.current;
+      const img = imgRef.current;
+      if (!section || !img) return;
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.bottom < 0 || rect.top > vh) return;
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const translate = (progress - 0.5) * 160;
+      img.style.transform = `translate3d(0, ${translate}px, 0) scale(1.25)`;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+  return (
+    <section ref={sectionRef} className="relative h-[55vh] w-full overflow-hidden">
+      <img
+        ref={imgRef}
+        src={plantExteriorAsset.url}
+        alt="Cleopatra Cement plant"
+        className="absolute inset-0 h-full w-full object-cover will-change-transform"
+        style={{ transform: "scale(1.25)" }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{ background: "linear-gradient(180deg, rgba(14,76,135,0.35) 0%, rgba(14,76,135,0.15) 100%)" }}
+        aria-hidden
+      />
+    </section>
+  );
+}
+
+function CounterStat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const { value: v, ref } = useCountUp(value);
+  return (
+    <div ref={ref} className="text-center">
+      <div
+        className="text-4xl md:text-6xl font-semibold tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
+      >
+        {v.toLocaleString()}
+        {suffix}
+      </div>
+      <div className="mt-2 text-sm md:text-base text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)]">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function CounterSection() {
+  const stats = [
+    { value: 20, suffix: "+", label: "Countries served" },
+    { value: 6, suffix: "", label: "Continents reached" },
+    { value: 420, suffix: "K", label: "Tons cement / year" },
+    { value: 300, suffix: "K", label: "Tons clinker / year" },
+  ];
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const bgRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      const sec = sectionRef.current;
+      const bg = bgRef.current;
+      if (!sec || !bg) return;
+      const rect = sec.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const translate = (progress - 0.5) * 160;
+      bg.style.transform = `translate3d(0, ${translate}px, 0) scale(1.2)`;
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+  return (
+    <section
+      ref={sectionRef}
+      className="relative w-full min-h-screen overflow-hidden flex flex-col justify-between"
+    >
+      <div
+        ref={bgRef}
+        aria-hidden
+        className="absolute inset-0 will-change-transform"
+        style={{
+          backgroundImage: `url(${counterFactory.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      <div className="absolute inset-0 bg-black/30" aria-hidden />
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-12 md:pt-16 text-center">
+        <h2 className="mt-4 text-2xl md:text-4xl font-semibold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
+          A global force in <span className="brand-gradient-text">white cement</span>
+        </h2>
+        <p className="mt-3 max-w-2xl mx-auto text-sm md:text-base text-white/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.35)]">
+          Trusted by partners across continents — delivering scale, consistency and precision.
+        </p>
+      </div>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 md:pb-24">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
+          {stats.map((s) => (
+            <CounterStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
+          ))}
         </div>
       </div>
     </section>
@@ -214,23 +357,36 @@ function MvvSection() {
     },
   ];
   return (
-    <section className="relative mx-auto max-w-7xl px-6 py-24">
-      <div ref={ref} className="grid gap-6 md:grid-cols-3">
-        {cards.map((c, i) => (
-          <div
-            key={c.title}
-            className={`reveal-card glass-card group rounded-3xl p-8 transition-transform duration-500 hover:-translate-y-2 ${
-              inView ? "is-visible" : ""
-            }`}
-            style={{ animationDelay: `${i * 180}ms` }}
-          >
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-              <c.icon className="h-6 w-6" />
+    <section
+      className="relative bg-cover bg-center bg-no-repeat py-24"
+      style={{ backgroundImage: `url(${mvvBg.url})` }}
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-14 text-center">
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight" style={{ color: "#0b131b" }}>
+            Our Purpose &amp; Principles
+          </h2>
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            The mission, vision and values that shape every decision at Cleopatra Cement.
+          </p>
+        </div>
+        <div ref={ref} className="grid gap-6 md:grid-cols-3">
+          {cards.map((c, i) => (
+            <div
+              key={c.title}
+              className={`reveal-card glass-card group rounded-3xl p-8 transition-transform duration-500 hover:-translate-y-2 ${
+                inView ? "is-visible" : ""
+              }`}
+              style={{ animationDelay: `${i * 180}ms` }}
+            >
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <c.icon className="h-6 w-6" />
+              </div>
+              <h3 className="mt-5 text-xl font-semibold">{c.title}</h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.text}</p>
             </div>
-            <h3 className="mt-5 text-xl font-semibold">{c.title}</h3>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.text}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -366,15 +522,12 @@ function ManufacturingSection() {
       className="relative overflow-hidden py-32 md:py-40"
     >
       <div
-        className="absolute inset-0 opacity-[0.22]"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `url(${patternAsset.url})`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "auto 140px",
-          maskImage:
-            "radial-gradient(ellipse at center, black 0%, black 55%, transparent 90%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at center, black 0%, black 55%, transparent 90%)",
+          backgroundImage: `url(${manufacturingBg.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
         aria-hidden
       />
@@ -395,7 +548,7 @@ function ManufacturingSection() {
         </h2>
         <p
           ref={pRef}
-          className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground will-change-transform md:text-lg"
+          className="mt-8 max-w-2xl text-base leading-relaxed text-white will-change-transform md:text-lg"
         >
           Founded in 1989, our Samalout plant combines premium local raw materials, advanced
           automation, precision quality control, and continuous process optimization — producing
@@ -404,7 +557,7 @@ function ManufacturingSection() {
         <a
           ref={ctaRef}
           href="#contact"
-          className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[0_10px_40px_-10px] shadow-primary transition hover:opacity-90 will-change-transform"
+          className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#0b131b] shadow-[0_10px_40px_-10px] shadow-white/30 transition hover:opacity-90 will-change-transform"
         >
           Discover Our Plant <ArrowRight className="h-4 w-4" />
         </a>
@@ -414,87 +567,98 @@ function ManufacturingSection() {
 }
 
 function ApplicationsSection() {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const apps = [
-    { title: "Construction", img: appConstruction, items: ["Structural Projects", "Architectural Precast", "Cast-in-Place Concrete", "Bridges"] },
-    { title: "Flooring", img: appFlooring, items: ["Terrazzo Floors", "Polished Floors", "Tile Mixes"] },
-    { title: "Decorative", img: appDecorative, items: ["Render", "Stucco", "Ornamental Statuary", "Cast Stone", "Cement-Based Paint"] },
-    { title: "Specialty", img: appSpecialty, items: ["Swimming Pools", "Shotcrete", "Mortars", "Tile Grout", "Waterproofing"] },
+    { title: "Construction", img: appConstruction, num: "01" },
+    { title: "Flooring", img: appFlooring, num: "02" },
+    { title: "Decorative", img: appDecorative, num: "03" },
+    { title: "Specialty", img: appSpecialty, num: "04" },
   ];
 
-  useEffect(() => {
-    const wrap = wrapRef.current;
-    const track = trackRef.current;
-    if (!wrap || !track) return;
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (sectionRef.current) {
+      const rect = sectionRef.current.getBoundingClientRect();
+      setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    }
+  };
 
-    let raf = 0;
-    const update = () => {
-      const rect = wrap.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const total = rect.height - vh;
-      const scrolled = Math.min(Math.max(-rect.top, 0), total);
-      const progress = total > 0 ? scrolled / total : 0;
-      const maxX = track.scrollWidth - window.innerWidth;
-      track.style.transform = `translate3d(${-progress * Math.max(maxX, 0)}px, 0, 0)`;
-    };
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
+  const hoveredApp = apps.find((a) => a.title === hovered);
 
   return (
-    <section id="applications" ref={wrapRef} className="relative" style={{ height: "300vh" }}>
-      <div className="sticky top-0 flex h-screen flex-col overflow-x-hidden overflow-y-hidden">
-        <div className="mx-auto max-w-3xl px-6 pt-12 md:pt-16 text-center shrink-0">
+    <section
+      id="applications"
+      ref={sectionRef}
+      className="relative w-full min-h-screen bg-background overflow-hidden py-20 md:py-32"
+      onMouseMove={handleMouseMove}
+    >
+      <div className="mx-auto max-w-7xl px-6 md:px-12">
+        {/* Label */}
+        <div className="mb-8 md:mb-12">
           <SectionTag>Applications</SectionTag>
-          <h2 className="mt-4 text-3xl md:text-5xl font-semibold">
-            Engineered for every <span className="brand-gradient-text">surface that matters</span>.
+        </div>
+
+        {/* Title & subtitle */}
+        <div className="mb-12 md:mb-20 max-w-3xl">
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight" style={{ color: "#0b131b" }}>
+            Engineered for every surface that matters.
           </h2>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
             From iconic structures to fine decorative finishes — Cleopatra white cement performs
             across the full spectrum of modern construction.
           </p>
         </div>
 
-        <div className="relative flex-1 min-h-0 flex items-center mt-8 md:mt-12 pb-8">
-          <div ref={trackRef} className="flex gap-6 pl-[10vw] pr-[10vw] will-change-transform items-stretch">
-            {apps.map((g) => (
-              <div
-                key={g.title}
-                className="group/card relative w-[300px] sm:w-[340px] shrink-0 flex flex-col overflow-hidden rounded-3xl glass-card transition-transform duration-500 hover:-translate-y-1"
-              >
-                <div className="relative h-40 sm:h-44 overflow-hidden shrink-0">
-                  <img
-                    src={g.img}
-                    alt={g.title}
-                    width={1024}
-                    height={1280}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover/card:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                </div>
-                <div className="p-5 flex-1 flex flex-col">
-                  <div className="text-sm uppercase tracking-widest text-primary">{g.title}</div>
-                  <ul className="mt-3 space-y-1.5 text-sm">
-                    {g.items.map((it) => (
-                      <li key={it} className="flex items-center gap-2 text-muted-foreground">
-                        <span className="h-1 w-1 rounded-full bg-primary" /> {it}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        {/* Titles with hover images */}
+        <div className="relative">
+          {/* Hover image that follows cursor */}
+          {hoveredApp && (
+            <div
+              className="fixed z-50 pointer-events-none transition-opacity duration-300"
+              style={{
+                left: mousePos.x + 20,
+                top: mousePos.y - 100,
+                opacity: hovered ? 1 : 0,
+              }}
+            >
+              <div className="w-64 h-44 sm:w-80 sm:h-52 md:w-96 md:h-60 rounded-2xl overflow-hidden shadow-2xl border border-border">
+                <img
+                  src={hoveredApp.img}
+                  alt={hoveredApp.title}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Text rows */}
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2 md:gap-x-5 md:gap-y-4">
+            {apps.map((app, i) => (
+              <div key={app.title} className="flex items-baseline gap-x-3 md:gap-x-5">
+                <button
+                  className="group relative inline-flex items-baseline gap-2 text-left"
+                  onMouseEnter={() => setHovered(app.title)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  <span
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight transition-colors duration-300"
+                    style={{ color: "#0b131b" }}
+                  >
+                    {app.title}
+                  </span>
+                  <sup
+                    className="text-xs md:text-sm font-medium text-muted-foreground translate-y-2"
+                  >
+                    {app.num}
+                  </sup>
+                </button>
+                {i < apps.length - 1 && (
+                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-muted-foreground/40">
+                    /
+                  </span>
+                )}
               </div>
             ))}
           </div>
@@ -521,7 +685,7 @@ function Home() {
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#" className="flex items-center gap-3">
-            <img src={logo.url} alt="Cleopatra Cement" className="h-14 w-auto md:h-16" />
+            <img src={logo.url} alt="Cleopatra Cement" className="h-24 w-auto md:h-28" />
           </a>
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground lg:flex">
             {[
@@ -563,18 +727,7 @@ function Home() {
         />
         <div
           className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, oklch(0.13 0.03 255 / 0.55) 0%, oklch(0.13 0.03 255 / 0.7) 60%, oklch(0.13 0.03 255 / 0.95) 100%)",
-          }}
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(60% 60% at 50% 0%, oklch(0.42 0.12 257 / 0.45), transparent 70%)",
-          }}
+          style={{ background: "rgba(14, 76, 135, 0.7)" }}
           aria-hidden
         />
 
@@ -597,7 +750,7 @@ function Home() {
           </h1>
 
           {/* Body */}
-          <p className="mt-8 max-w-2xl text-center text-base leading-[26px] tracking-[-0.2px] text-white/65 opacity-0 [animation:fade-up_1s_cubic-bezier(0.2,0.8,0.2,1)_0.35s_both] md:text-lg">
+          <p className="mt-8 max-w-2xl text-center text-base leading-[26px] tracking-[-0.2px] text-white opacity-0 [animation:fade-up_1s_cubic-bezier(0.2,0.8,0.2,1)_0.35s_both] md:text-lg">
             Premium Egyptian White Cement trusted across more than 20 countries and six
             continents, delivering superior whiteness, strength, precision, and sustainable
             performance.
@@ -622,18 +775,12 @@ function Home() {
         </div>
       </section>
 
-      {/* Stats strip */}
-      <section className="relative mx-auto max-w-7xl px-6 pb-8">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <Stat value={20} suffix="+" label="Countries served" icon={Globe} />
-          <Stat value={6} label="Continents reached" icon={Ship} />
-          <Stat value={420000} label="Tons cement / year" icon={Package} />
-          <Stat value={300000} label="Tons clinker / year" icon={Factory} />
-        </div>
-      </section>
 
       {/* ABOUT */}
       <AboutSection />
+
+      {/* COUNTER */}
+      <CounterSection />
 
       {/* MISSION VISION VALUES */}
       <MvvSection />
@@ -749,27 +896,72 @@ function Home() {
 
 
         {/* Packaging */}
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              { title: "Bagged Cement", desc: "25kg, 40kg & 50kg in polypropylene, polyethylene or kraft paper bags." },
-              { title: "Sling Bags & Pallets", desc: "Easy to transport and handle — ideal for job sites and retail distribution." },
-              { title: "Bulk Cement", desc: "High-volume delivery to project locations for large-scale construction." },
-            ].map((p, i) => (
-              <div
-                key={p.title}
-                className="group rounded-2xl border border-border bg-card/40 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/70 hover:shadow-[0_20px_60px_-20px_oklch(0.62_0.18_255/0.45)] animate-[fade-in_0.6s_ease-out_both]"
-                style={{ animationDelay: `${i * 120}ms` }}
-              >
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                  <Package className="h-5 w-5" />
-                </div>
-                <div className="mt-4 font-medium">{p.title}</div>
-                <div className="mt-1 text-sm text-muted-foreground">{p.desc}</div>
-              </div>
-            ))}
+        <div
+          className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat mt-28 md:mt-36 lg:mt-44 overflow-hidden"
+          style={{ backgroundImage: `url(${productsBackgroundSection.url})` }}
+        >
+          {/* Top-centered title */}
+          <div className="relative z-10 mx-auto max-w-4xl px-6 pt-20 md:pt-28 lg:pt-32 text-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-foreground whitespace-nowrap">
+              Packaging & Delivery Options
+            </h2>
+            <p className="mt-5 text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Flexible formats engineered for every project scale — from retail bags to bulk transport.
+            </p>
           </div>
+
+          {/* Hover hotspots */}
+          {[
+            {
+              top: "62%",
+              left: "25%",
+              title: "Sling Bags & Pallets",
+              desc: "Easy to transport and handle — ideal for job sites and retail distribution.",
+              cardPos: "top",
+            },
+            {
+              top: "80%",
+              left: "42%",
+              title: "Bagged Cement",
+              desc: "25kg, 40kg & 50kg in polypropylene, polyethylene or kraft paper bags.",
+              cardPos: "top",
+            },
+            {
+              top: "60%",
+              left: "78%",
+              title: "Bulk Cement",
+              desc: "High-volume delivery to project locations for large-scale construction.",
+              cardPos: "top",
+            },
+          ].map((spot, i) => (
+            <div
+              key={i}
+              className="absolute z-20 group cursor-pointer -translate-x-1/2 -translate-y-1/2"
+              style={{ top: spot.top, left: spot.left }}
+            >
+              <div className="relative flex items-center justify-center">
+                <span className="absolute inline-flex h-10 w-10 rounded-full bg-primary/30 animate-ping" />
+                <span className="relative inline-flex h-4 w-4 rounded-full bg-primary border-2 border-white shadow-lg" />
+              </div>
+              <div
+                className={`absolute left-1/2 -translate-x-1/2 w-64 md:w-72 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none ${
+                  spot.cardPos === "top" ? "bottom-full mb-4" : "top-full mt-4"
+                }`}
+              >
+                <div className="rounded-2xl border border-border bg-card/95 backdrop-blur-md p-5 shadow-2xl text-left">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <Package className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-base font-semibold text-foreground">{spot.title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{spot.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+
       </section>
 
       {/* APPLICATIONS */}
@@ -777,7 +969,7 @@ function Home() {
 
 
       {/* LOGISTICS */}
-      <section id="logistics" className="relative h-screen w-full overflow-hidden mt-24 md:mt-32">
+      <section id="logistics" className="relative h-screen w-full overflow-hidden mt-12 md:mt-16">
         <video
           src={logisticsVideo.url}
           autoPlay
@@ -865,9 +1057,9 @@ function Home() {
               return [...certs, ...certs].map((c, idx) => (
                 <div
                   key={`${c.k}-${idx}`}
-                  className="group/card flex w-[240px] shrink-0 flex-col items-center gap-4 rounded-2xl glass-card p-6 transition-transform duration-500 hover:-translate-y-1"
+                  className="group/card flex w-[240px] shrink-0 flex-col items-center gap-4 rounded-2xl border border-border p-6 transition-transform duration-500 hover:-translate-y-1"
                 >
-                  <div className="flex h-28 w-full items-center justify-center rounded-xl bg-white p-4">
+                  <div className="flex h-28 w-full items-center justify-center rounded-xl p-4">
                     <img
                       src={c.src}
                       alt={c.k}
@@ -889,23 +1081,23 @@ function Home() {
       </section>
 
       {/* SUSTAINABILITY */}
-      <section id="sustainability" className="relative mx-auto max-w-7xl px-6 py-24">
-        <div className="glass-card relative overflow-hidden rounded-3xl glow-ring min-h-[560px]">
-          <img
-            src={sustainabilityImg.url}
-            alt="Wind turbines over a green landscape"
-            width={1920}
-            height={1280}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/55 to-background/20" />
-          <div className="relative p-10 md:p-16 text-center">
+      <section id="sustainability" className="relative h-screen w-full overflow-hidden">
+        <img
+          src={sustainabilityImg.url}
+          alt="Wind turbines over a green landscape"
+          width={1920}
+          height={1280}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/55 to-background/20" />
+        <div className="relative z-10 flex h-full w-full items-center justify-center px-6">
+          <div className="mx-auto max-w-3xl text-center">
             <div className="flex justify-center">
               <SectionTag>Sustainability</SectionTag>
             </div>
-            <h2 className="mt-4 text-4xl md:text-5xl font-semibold">
-              Building responsibly. <span className="brand-gradient-text">For generations.</span>
+            <h2 className="mt-4 text-4xl md:text-5xl font-semibold" style={{ color: "#0b131b" }}>
+              Building responsibly. <span style={{ color: "#0b131b" }}>For generations.</span>
             </h2>
             <p className="mt-6 mx-auto max-w-2xl text-foreground/85">
               Sustainability is foundational at Cleopatra Cement. We invest in green technologies
@@ -913,7 +1105,6 @@ function Home() {
               ensuring our production meets international environmental standards.
             </p>
             <SustainabilityCards />
-
           </div>
         </div>
       </section>
@@ -921,14 +1112,10 @@ function Home() {
       {/* CONTACT / CTA */}
       <section id="contact" className="relative mx-auto max-w-7xl px-6 py-24">
         <div className="relative overflow-hidden rounded-3xl border border-border">
-          <video
+          <img
+            src={ctaBg.url}
+            alt="Background pattern"
             className="absolute inset-0 h-full w-full object-cover"
-            autoPlay
-            playsInline
-            muted
-            preload="auto"
-            loop
-            src="https://framerusercontent.com/assets/lr4LSmXa1klevAvb0jf1i2zsDE.mp4"
           />
           <div className="absolute inset-0 bg-black/50" aria-hidden />
           <div className="relative flex flex-col items-center text-center gap-6 p-10 md:p-16">
@@ -1020,7 +1207,7 @@ function SustainabilityCards() {
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 ring-1 ring-primary/30 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
             <Icon className="h-7 w-7 text-primary transition-transform duration-500 group-hover:scale-110" />
           </div>
-          <div className="mt-4 text-sm font-medium text-foreground">{title}</div>
+          <div className="mt-4 text-sm font-medium" style={{ color: "#0b131b" }}>{title}</div>
         </div>
       ))}
     </div>
